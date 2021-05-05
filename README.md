@@ -1,5 +1,7 @@
 # Wise
 
+**Note:** work in progress. Thoughts and contributions welcome
+
 Wise is a command line tool for version control which is easier to learn and harder to mess up than `git`, while still leveraging the power of `git` under the hood, making it compatible with existing repositories.
 
 Linus [named it "git" after the British slang for "idiot"](https://en.wikipedia.org/wiki/Git#Naming) because [`git` is stupid](https://www.youtube.com/watch?v=4XpnKHJAok8). It was built 16 years ago for managing the linux kernel repository and a game changer in the industry. It blew the other version control systems out of the water because the creators learned from many of the mistakes of earlier version control tools.
@@ -38,3 +40,29 @@ Unlike `git`, Wise is wise. The goal is to make an easy to learn and use command
 - [ ] Better project setup (cloning and intializing)
 - [ ] Automation around `.gitignore` perhaps via https://github.com/github/gitignore with detection of likely gitignore mistakes and remediation
 - [ ] Automation around setting username/email per-project
+
+
+# Notes:
+
+```
+// wi status -- print anything useful for understanding what's happening. cwd, branch,
+//			does a remote branch exist, what are the differences in commits between local and remote,
+//			are there uncommitted changes
+// wi branch -- create a new branch. confirm if source branch is not a default/protected one. fetch changes from remote before branching
+// wi commit -- look for unresolved merge conflicts and error,
+// 			interactively stage and unstage files, encourage review, supply a message, and commit
+// wi push -- pull down changes from source branch and merge, then push to remote, creating a new remote branch if necessary. error if
+//			pushing to a protected branch
+// wi sync? -- fetch, check for changes to main branch and merge/rebase. if there are existing changes, offer to apply them on top or throw
+//			them away
+// wi peek <ref> -- stash any current changes and check out a particular commit/branch/tag. fetch it from remote if required.
+//			block committing until switched back with `wi return`?
+// wi undo-commit -- check if commit has been pushed already, then revert last commit and unstage changes
+// wi switch? -- stash any current changes on the existing branch and switch to another existing branch. difference from `peek`
+//			being you can commit
+// wi learn -- interactive tutorial for version control and git flow
+
+// need consistency - noun-oriented or verb-oriented?
+// "branch" and "commit" are each both nouns and verbs
+// powerful terminal uis: https://github.com/rivo/tview
+```
